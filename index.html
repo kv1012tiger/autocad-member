@@ -70,7 +70,7 @@ img{max-width:100%;display:block}
 .f-gift{font-size:30px;animation:drift 26s ease-in-out infinite}
 .f-bell{font-size:28px;animation:drift 32s ease-in-out infinite;animation-delay:-12s}
 .f-deer{font-size:36px;animation:deer 40s ease-in-out infinite;animation-delay:-22s}
-.f-flake{font-size:26px;opacity:.75;animation:flake 22s linear infinite}
+.f-flake{font-size:24px;opacity:.6;animation:flake 40s linear infinite}
 .f-flake.b{animation-duration:30s;animation-delay:-9s;font-size:20px}
 @keyframes drift{0%{transform:translate(8vw,110vh) rotate(-15deg)}50%{transform:translate(18vw,40vh) rotate(15deg)}100%{transform:translate(4vw,-15vh) rotate(-10deg)}}
 @keyframes deer{0%{transform:translate(110vw,30vh)}30%{transform:translate(70vw,24vh) translateY(-20px)}60%{transform:translate(30vw,34vh)}100%{transform:translate(-15vw,26vh)}}
@@ -426,6 +426,41 @@ h2{font-size:clamp(26px,4.6vw,40px);line-height:1.3;margin:8px 0 10px}
 .panel .bio{color:#d6def5;margin:0 0 10px;font-size:15.5px}
 @media (max-width:420px){#iModal .links{grid-template-columns:1fr}}
 
+/* ===== 雙11 推薦好友加碼 ===== */
+.promo-only{display:none}
+body.promo-on .promo-only{display:block}
+body.promo-on .promo-off{display:none}
+.ref-box.promo-only{background:linear-gradient(135deg,rgba(226,58,72,.28),rgba(255,207,90,.16));border-color:rgba(255,160,170,.75)}
+.ref-box s{display:block;margin-top:6px;font-size:13.5px;color:var(--muted)}
+.ref-box .pr-cd{display:inline-block;margin-top:8px;font-size:14px;font-weight:800;color:#fff;background:rgba(0,0,0,.25);padding:4px 10px;border-radius:999px}
+#promo .panel{max-width:480px;text-align:center;background:radial-gradient(120% 70% at 50% 0%,#5a1630 0%,#22306a 55%,#141d48 100%);border:2px solid rgba(255,207,90,.7);box-shadow:0 0 0 6px rgba(226,58,72,.25),0 30px 80px rgba(0,0,0,.6)}
+.pm-top{font-size:44px;line-height:1;margin-top:4px;letter-spacing:4px}
+.pm-badge{display:inline-block;margin:10px 0 6px;font-size:14px;font-weight:900;letter-spacing:.08em;padding:5px 14px;border-radius:999px;background:linear-gradient(135deg,#ffb36b,#ef4b58 50%,#c81e45);color:#fff}
+#promo h3{font-size:24px;margin:4px 0 8px;text-align:center}
+.pm-old{font-size:15px;color:var(--muted);text-decoration:line-through}
+.pm-arrow{font-size:18px;color:var(--gold);margin:2px 0}
+.pm-big{font-size:clamp(22px,5.4vw,28px);font-weight:900;line-height:1.35;color:#fff}
+.pm-big em{font-style:normal;color:var(--gold);font-size:1.5em;text-shadow:0 0 18px rgba(255,207,90,.6)}
+.pm-date{font-size:14px;color:#ffe6a6;margin-top:4px}
+.pm-list{list-style:none;text-align:left;margin:14px 0 0;padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.22);border:1px solid var(--line);display:grid;gap:6px;font-size:14.5px}
+.pm-list li{padding-left:22px;position:relative}
+.pm-list li:before{content:"✓";position:absolute;left:2px;color:#5ee08f;font-weight:900}
+.pm-cd{margin:14px 0 2px;font-size:15px;font-weight:800}
+.pm-cd b{display:inline-block;min-width:34px;padding:3px 6px;margin:0 2px;border-radius:8px;background:rgba(255,255,255,.12);color:var(--gold);font-size:20px}
+.pm-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.pm-btns .btn{width:100%}
+.pm-btns .btn:first-child{grid-column:1/-1}
+@media (max-width:520px){
+  #promo .panel{padding:18px 16px 16px}
+  .pm-top{font-size:32px}
+  .pm-badge{margin:6px 0 4px;font-size:13px}
+  #promo h3{font-size:20px;margin:2px 0 4px}
+  .pm-old{font-size:13.5px}.pm-arrow{font-size:14px;margin:0}
+  .pm-list{margin-top:10px;padding:10px 12px;font-size:13.5px;gap:4px}
+  .pm-cd{margin:10px 0 0;font-size:14px}.pm-cd b{font-size:17px;min-width:28px}
+  .pm-btns{margin-top:10px}.pm-btns .btn{padding:11px 10px;font-size:15px}
+}
+
 /* ===== 彈窗 ===== */
 .modal{position:fixed;inset:0;z-index:100;background:rgba(3,6,20,.8);display:none;align-items:center;justify-content:center;padding:16px}
 .modal.show{display:flex}
@@ -476,7 +511,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
   <span class="f-gift">🎁</span>
   <span class="f-bell">🔔</span>
   <span class="f-flake">❄️</span>
-  <span class="f-flake b">❄️</span>
 </div>
 
 <header class="top">
@@ -641,7 +675,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
       <span class="eyebrow">Refer a Friend ‧ 推薦好友</span>
       <h2>找朋友一起學，<br><span class="grad">一起解鎖課程</span></h2>
       <p class="lead">不只一起加入，也一起往 AutoCAD 大師之路前進。</p>
-      <div class="ref-box"><b>推薦 1 位，雙方各加贈 3 個月</b><span>成功推薦 3 位好友，推薦人累積加贈 12 個月，多學 1 年。</span></div>
+      <div class="ref-box promo-only"><b>🎁 雙11 加碼：推薦好友成功，雙方各加贈 1 年！</b><span>11/06～11/15 期間，推薦人與新會員須為相同方案（方案不同照原本雙方各加贈 3 個月）；3000／3800／4800 都適用，每人最多加贈 1 年；已加入年度會員的人也適用。</span><span class="pr-cd" data-promo-cd></span><s>原本：推薦 1 位，雙方各加贈 3 個月</s></div>
+      <div class="ref-box promo-off"><b>推薦 1 位，雙方各加贈 3 個月</b><span>成功推薦 3 位好友，推薦人累積加贈 12 個月，多學 1 年。</span></div>
       <ol class="ref-steps">
         <li><i>1</i>邀請好友加入年度學習會員</li>
         <li><i>2</i>新會員訂購時填寫推薦人姓名與 Gmail 信箱</li>
@@ -782,6 +817,29 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
       <a class="lk" href="https://lin.ee/4xw8yKI" target="_blank" rel="noopener"><i>🎁</i><span><b>LINE 一對一問蘋果爸</b><small>課程問題直接問 ‧ @sni5329r</small></span></a>
   </div></div>
 </template>
+<div class="modal" id="promo" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+  <div class="card panel">
+    <button class="x" type="button" data-close aria-label="關閉">✕</button>
+    <div class="pm-top" aria-hidden="true">🎁🎄🎁</div>
+    <span class="pm-badge">雙11 限定</span>
+    <h3 id="pmTitle">推薦好友加碼</h3>
+    <div class="pm-old">原本推薦 1 位，雙方各加贈 3 個月</div>
+    <div class="pm-arrow">▼</div>
+    <div class="pm-big">推薦好友成功<br>雙方各加贈 <em>1 年</em>！</div>
+    <div class="pm-date">活動期間 11/06～11/15</div>
+    <ul class="pm-list">
+      <li>推薦人與新會員須為相同方案（例如都是 3800）；方案不同，照原本雙方各加贈 3 個月</li>
+      <li>3000／3800／4800 都適用，每人最多加贈 1 年</li>
+      <li>已加入年度會員的人也適用</li>
+    </ul>
+    <div class="pm-cd" data-promo-cd></div>
+    <div class="pm-btns">
+      <button class="btn btn-gold" type="button" id="pmRef">🐱 看推薦活動</button>
+      <a class="btn btn-red" href="https://autocad-tw.my1shop.com/lxze8b" target="_blank" rel="noopener">🎁 前往官網</a>
+      <button class="btn btn-ghost" type="button" data-close>知道了</button>
+    </div>
+  </div>
+</div>
 <div class="modal lightbox" id="pModal" role="dialog" aria-modal="true" aria-label="課程海報">
   <div class="panel card">
     <button class="x" type="button" data-close aria-label="關閉">✕</button>
@@ -798,6 +856,12 @@ var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").mat
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 function sstore(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v)}catch(e){return null}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+
+/* ---------- 雙11 推薦好友加碼：台灣時間 11/06 00:00～11/15 23:59，過了自動恢復原本內容 ---------- */
+var PROMO_START=Date.parse("2026-11-06T00:00:00+08:00"),PROMO_END=Date.parse("2026-11-15T23:59:59+08:00");
+var PROMO=Date.now()>=PROMO_START&&Date.now()<=PROMO_END;
+if(PROMO)document.body.classList.add("promo-on");
 
 /* ---------- 提示與彩紙 ---------- */
 var toastT;
@@ -873,15 +937,15 @@ setMuteIcon();
   var cv=$("sky"),ctx=cv.getContext("2d"),W,H,dpr=Math.min(window.devicePixelRatio||1,2),stars=[],fl=[],run=true,t0=0;
   function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
   size();addEventListener("resize",size);
-  var mob=W<700,NS=mob?70:140,NF=reduce?0:(mob?50:100);
+  var mob=W<700,NS=mob?70:140,NF=reduce?0:(mob?18:35);
   for(var i=0;i<NS;i++)stars.push({x:Math.random(),y:Math.random()*.75,r:Math.random()*1.3+.3,p:Math.random()*Math.PI*2,s:.6+Math.random()*1.6});
-  for(i=0;i<NF;i++)fl.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.4+.7,v:Math.random()*.6+.25,d:Math.random()*6});
+  for(i=0;i<NF;i++)fl.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.6,v:Math.random()*.28+.12,d:Math.random()*6});
   function frame(t){
     if(!run)return;var tt=t/1000;ctx.clearRect(0,0,W,H);
     for(var i=0;i<stars.length;i++){var s=stars[i],a=reduce?.7:.35+.65*Math.abs(Math.sin(tt*s.s+s.p));
       ctx.fillStyle="rgba(255,250,230,"+a.toFixed(2)+")";ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);ctx.fill()}
-    ctx.fillStyle="rgba(255,255,255,.85)";ctx.beginPath();
-    for(i=0;i<fl.length;i++){var p=fl[i];p.y+=p.v;p.d+=.01;p.x+=Math.sin(p.d)*.4;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}
+    ctx.fillStyle="rgba(255,255,255,.55)";ctx.beginPath();
+    for(i=0;i<fl.length;i++){var p=fl[i];p.y+=p.v;p.d+=.006;p.x+=Math.sin(p.d)*.25;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}
       ctx.moveTo(p.x,p.y);ctx.arc(p.x,p.y,p.r,0,Math.PI*2)}
     ctx.fill();if(!reduce)requestAnimationFrame(frame);
   }
@@ -1062,7 +1126,7 @@ var SPOTS=[
  {k:"who",e:"🙋",name:"適合對象島",sub:"新手到職場繪圖人員",c:"#ff9ab5",dc:["⛄","🍪","❄️"],d:[73,15],m:[28,47]},
  {k:"note",e:"⚠️",name:"購買前注意島",sub:"Gmail 綁定 ‧ 觀看期限",c:"#ffcf5a",dc:["🔔","🎄","🕯️"],d:[89,48],m:[72,60.5],
   items:[["📼","部分課程為 <b>2010 版</b>錄製"],["🔁","新舊版基礎核心觀念一致"],["📧","觀看需<b>綁定 Gmail</b>"],["🔒","綁定後<b>不可更換</b>信箱"],["⏳","觀看期限為開通後 1 年"]]},
- {k:"ref",e:"🤝",name:"推薦好友島",sub:"雙方各加贈 3 個月",c:"#ff8a5a",dc:["🎁","🐱","⭐"],d:[67,77],m:[28,74.5]},
+ {k:"ref",e:"🤝",name:"推薦好友島",sub:PROMO?"雙11 雙方各送 1 年":"雙方各加贈 3 個月",c:"#ff8a5a",dc:["🎁","🐱","⭐"],d:[67,77],m:[28,74.5]},
  {k:"dock",e:"⛵",name:"禮物碼頭",sub:"三種方案 ‧ 前往選購",c:"#e23a48",dc:["🎁","🎄","🎅"],d:[38,79],m:[66,90]}
 ];
 SPOTS[3].items=[["🌱","完全沒碰過 AutoCAD 的新手"],["🧱","會用但基礎不穩、想重新打底的人"],["💼","每天要畫圖的職場繪圖人員"],["🏠","設計、建築、室內、工程相關從業者"],["🚀","想把繪圖速度再往上提的人"]];
@@ -1177,7 +1241,7 @@ function openSpot(i){
   }else if(s.items){
     body.innerHTML=head(s,i)+itemsHTML(s.items);
   }else if(s.k==="ref"){
-    body.innerHTML=head(s,i)+itemsHTML([["🎁","推薦 1 位，<b>雙方各加贈 3 個月</b>"],["🏆","成功推薦 3 位好友，推薦人累積加贈 12 個月，<b>多學 1 年</b>"],["✉️","新會員訂購時填寫推薦人姓名與 Gmail 信箱"],["✅","付款與資料確認後，雙方即獲加贈期限"]])+
+    body.innerHTML=head(s,i)+itemsHTML((PROMO?[["🎁","<b>雙11 加碼</b>：11/06～11/15 推薦好友成功，<b>雙方各加贈 1 年</b>"],["🤝","推薦人與新會員須為相同方案；方案不同照原本雙方各加贈 3 個月"],["🏆","3000／3800／4800 都適用，每人最多加贈 1 年；已加入年度會員的人也適用"]]:[["🎁","推薦 1 位，<b>雙方各加贈 3 個月</b>"],["🏆","成功推薦 3 位好友，推薦人累積加贈 12 個月，<b>多學 1 年</b>"]]).concat([["✉️","新會員訂購時填寫推薦人姓名與 Gmail 信箱"],["✅","付款與資料確認後，雙方即獲加贈期限"]]))+
       '<div class="ibtns"><button class="btn btn-gold" type="button" data-jump="referral">🐱 看推薦好友活動</button></div>';
   }else{
     body.innerHTML=head(s,i)+'<p class="bio">三份聖誕禮物，挑一份給自己。按下會直接到官網付款。</p><div class="ibtns">'+
@@ -1197,6 +1261,27 @@ $("iPrev").addEventListener("click",function(){if(curSpot>0){placeSleigh(curSpot
 $("iNext").addEventListener("click",function(){if(curSpot<SPOTS.length-1){placeSleigh(curSpot+1,true);openSpot(curSpot+1)}else closeModal($("iModal"))});
 mapLayout();
 var mT;addEventListener("resize",function(){clearTimeout(mT);mT=setTimeout(mapLayout,120)});
+
+/* ---------- 雙11 提醒視窗（同一個分頁只跳一次） ---------- */
+(function(){
+  if(!PROMO)return;
+  var els=document.querySelectorAll("[data-promo-cd]");
+  function tick(){
+    var ms=PROMO_END-Date.now();
+    if(ms<=0){Array.prototype.forEach.call(els,function(e){e.textContent="⏰ 雙11 加碼已結束"});return}
+    var d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),sec=Math.floor(ms%6e4/1e3);
+    Array.prototype.forEach.call(els,function(e){
+      e.innerHTML=e.classList.contains("pm-cd")?"⏰ 倒數 <b>"+d+"</b>天<b>"+h+"</b>時<b>"+m+"</b>分<b>"+sec+"</b>秒":"⏰ 倒數 "+d+" 天 "+h+" 小時 "+m+" 分";
+    });
+  }
+  tick();setInterval(tick,1000);
+  $("pmRef").addEventListener("click",function(){jump("referral");closeModal($("promo"))});
+  if(sstore("xmas-promo")==="1")return;
+  setTimeout(function(){
+    if(document.querySelector(".modal.show"))return;
+    sstore("xmas-promo","1");openModal($("promo"),$("pmRef"));bell(1318);bell(1760,.1);
+  },900);
+})();
 var rT;addEventListener("resize",function(){clearTimeout(rT);rT=setTimeout(layoutStage,120)});
 layoutStage();
 requestAnimationFrame(loop);
