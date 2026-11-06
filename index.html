@@ -143,6 +143,26 @@ h2{font-size:clamp(26px,4.6vw,40px);line-height:1.3;margin:8px 0 10px}
 .hero h1{font-size:clamp(32px,6vw,60px);line-height:1.18;margin:16px 0 12px;font-weight:900}
 .hero h1 .hl{color:var(--gold);text-shadow:0 0 26px rgba(255,207,90,.5)}
 .hero .desc{color:#d6def5;font-size:clamp(16px,2.1vw,19px);margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:900px){.chips{justify-content:center}}
+.chip.recruit{background:linear-gradient(135deg,rgba(226,58,72,.3),rgba(255,207,90,.18));color:#fff;border-color:rgba(255,140,150,.7);font-weight:800}
+.chip.recruit i{display:inline-block;width:9px;height:9px;border-radius:50%;background:#5ee08f;box-shadow:0 0 0 0 rgba(94,224,143,.7);animation:livePulse 1.6s infinite}
+@keyframes livePulse{70%{box-shadow:0 0 0 8px rgba(94,224,143,0)}100%{box-shadow:0 0 0 0 rgba(94,224,143,0)}}
+.slogan{margin:0 0 12px;font-size:clamp(19px,2.8vw,26px);font-weight:900;line-height:1.45;color:#ffe6a6;text-shadow:0 0 18px rgba(255,207,90,.3)}
+.unlock{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 4px;padding-top:16px}
+.unlock:before{content:"";position:absolute;left:8%;right:8%;top:6px;height:2px;background:linear-gradient(90deg,#5ee08f,#ffcf5a,#ff8a95);border-radius:2px}
+.unlock .bulb{position:absolute;top:0;width:14px;height:14px;margin-left:-7px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:tw 1.4s ease-in-out infinite}
+.ul{position:relative;padding:12px 10px 10px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid var(--line);text-align:center}
+.ul.ok{background:rgba(47,179,107,.18);border-color:rgba(94,224,143,.65)}
+.ul .ue{font-size:22px;line-height:1}
+.ul b{display:block;font-size:15px;margin-top:4px;line-height:1.35}
+.ul span{display:block;font-size:12.5px;color:var(--muted);line-height:1.4}
+.ul.ok span{color:#a8f0c4}
+.unlock-note{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+@media (max-width:520px){.ul b{font-size:13.5px}.ul span{font-size:11.5px}.ul{padding:10px 6px 8px}}
+.plan .now{font-size:14px;font-weight:800;color:#a8f0c4;background:rgba(47,179,107,.16);border:1px solid rgba(94,224,143,.5);border-radius:10px;padding:6px 10px;margin-bottom:12px}
+.plan .recruit-box{font-size:14px;background:rgba(226,58,72,.14);border:1px solid rgba(255,140,150,.5);border-radius:10px;padding:8px 10px;margin-bottom:14px;color:#ffd6da}
+.plan .recruit-box b{color:#fff}
 .price-line{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:baseline;margin:18px 0 0}
 @media (max-width:900px){.price-line{justify-content:center}}
 .price-line .big{font-size:28px;font-weight:900;color:var(--gold)}
@@ -480,9 +500,17 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <span class="chip" id="xmasChip">🎅 聖誕快樂</span>
+      <div class="chips"><span class="chip recruit"><i></i>🎅 募集中 ‧ AutoCAD 年度學習會員</span><span class="chip" id="xmasChip">🎄 聖誕快樂</span></div>
       <h1>今年聖誕，<br>送自己<span class="hl">一整年的 AutoCAD</span></h1>
+      <p class="slogan">募集好友一起解鎖全課程，<br>從零基礎學到高階與 AI</p>
       <p class="desc">21 堂線上課，從 2D 入門、圖層圖塊出圖，一路學到 AI 程式。<br>不用一堂一堂買，一次付費，一年都能看。</p>
+      <div class="unlock" aria-label="募集解鎖進度">
+        <i class="bulb" style="left:16.6%;background:#5ee08f;box-shadow:0 0 12px #5ee08f"></i><i class="bulb" style="left:50%;background:#ffcf5a;box-shadow:0 0 12px #ffcf5a;animation-delay:.4s"></i><i class="bulb" style="left:83.3%;background:#ff8a95;box-shadow:0 0 12px #ff8a95;animation-delay:.8s"></i>
+        <div class="ul ok"><div class="ue">✅</div><b>目前已開通<br>初階 9 堂</b><span>現在加入就能看</span></div>
+        <div class="ul"><div class="ue">🎁</div><b>募集滿 80 人<br>加開 6 堂</b><span>圖層・圖塊・出圖＋私房</span></div>
+        <div class="ul"><div class="ue">⭐</div><b>募集滿 150 人<br>開通全課程 21 堂</b><span>字型・圖紙集・高階・AI</span></div>
+      </div>
+      <p class="unlock-note">3000 元募集會員：人數達標自動解鎖，不用額外付費，已加入的會員一併適用。</p>
       <div class="price-line">
         <span class="big">NT$3,000<small> 起／年</small></span>
         <span class="meta">9 堂／15 堂／21 堂 三種方案</span>
@@ -552,10 +580,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
     <div class="plans">
       <article class="card plan reveal">
         <div class="em">🎁</div>
-        <h3>小禮物 ‧ 初階打底</h3>
-        <div class="sub">年度學習會員</div>
+        <h3>募集會員 ‧ 一起解鎖</h3>
+        <div class="sub">年度學習會員（募集制）</div>
         <div class="price">NT$3,000<small> ／年</small></div>
-        <div class="per">9 堂課 ‧ 每堂約 333 元</div>
+        <div class="per">目前已開通 9 堂 ‧ 達標最多 21 堂</div>
+        <div class="recruit-box">募集滿 <b>80 人</b>加開 6 堂、滿 <b>150 人</b>開通全課程 21 堂，<b>達標自動解鎖</b>，不用額外付費。</div>
         <ul>
           <li>2D 入門 2016／2020／2026 版</li>
           <li>2D 入門 Mac</li>
@@ -572,6 +601,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
         <div class="sub">年度學習會員（第二階段）</div>
         <div class="price">NT$3,800<small> ／年</small></div>
         <div class="per">15 堂課 ‧ 每堂約 253 元</div>
+        <div class="now">⚡ 不用等募集，立即開通 15 堂</div>
         <ul>
           <li>初階 9 堂全部包含</li>
           <li class="plus">圖層大師</li>
@@ -588,6 +618,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
         <div class="sub">年度學習會員（直購）</div>
         <div class="price">NT$4,800<small> ／年</small></div>
         <div class="per">21 堂課 ‧ 每堂約 229 元</div>
+        <div class="now">⚡ 不用等募集，立即開通全部 21 堂</div>
         <ul>
           <li>初階 9 堂＋進階 6 堂</li>
           <li class="plus">字型字體全制霸、快速出圖比例</li>
@@ -824,9 +855,9 @@ setMuteIcon();
 (function(){
   var now=new Date(),y=now.getFullYear(),chip=$("xmasChip");
   var days=Math.round((new Date(y,11,24)-new Date(y,now.getMonth(),now.getDate()))/864e5);
-  if(now.getMonth()===11&&(now.getDate()===24||now.getDate()===25))chip.textContent="🎅 聖誕快樂！";
-  else if(days>0&&days<=60)chip.textContent="🎅 距離平安夜還有 "+days+" 天";
-  else chip.textContent="🎅 聖誕快樂 ‧ 新年一起進步";
+  if(now.getMonth()===11&&(now.getDate()===24||now.getDate()===25))chip.textContent="🎄 聖誕快樂！";
+  else if(days>0&&days<=60)chip.textContent="🎄 距離平安夜還有 "+days+" 天";
+  else chip.textContent="🎄 聖誕快樂 ‧ 新年一起進步";
 })();
 
 /* ---------- 開頭聖誕樹小燈 ---------- */
@@ -889,7 +920,7 @@ $("posterBtn").addEventListener("click",function(){
 /* ---------- 12 座聖誕小島：常見問題 ---------- */
 var SHOP="https://autocad-tw.my1shop.com/lxze8b";
 var FAQ=[
- {e:"🎁",s:"方案差異",q:"三種方案差在哪？",a:["<b>3000 元</b>：年度學習會員，目前開通初階 9 堂。","<b>3800 元</b>：第二階段方案，立即開通初階＋進階，共 15 堂。","<b>4800 元</b>：直購方案，立即開通全部 21 堂。","三種方案都是開通後觀看 1 年。"],c:"#ff6b78",g:"#2f8f55"},
+ {e:"🎁",s:"方案差異",q:"三種方案差在哪？",a:["<b>3000 元</b>：募集會員，目前已開通初階 9 堂；募集滿 80 人加開 6 堂、滿 150 人開通全課程 21 堂，達標自動解鎖，不用額外付費。","<b>3800 元</b>：第二階段方案，不用等募集，立即開通初階＋進階，共 15 堂。","<b>4800 元</b>：直購方案，不用等募集，立即開通全部 21 堂。","三種方案都是開通後觀看 1 年。"],c:"#ff6b78",g:"#2f8f55"},
  {e:"⛄",s:"沒到 150 人",q:"沒有達到 150 人怎麼辦？",a:["會持續募集。3000 方案目前已開通初階 9 堂，人數達到 80 人、150 人時，再依序開通進階與專業強化課程，已加入的會員一併適用。","不想等的話，可以直接選 3800（15 堂）或 4800（21 堂）方案，立即開通。"],c:"#bfe6ff",g:"#3a8fb0"},
  {e:"🎄",s:"新版嗎",q:"課程是新版嗎？",a:["新舊版基礎核心觀念一致，後續補新版差異。","初階已經包含「2D 入門 2026 版」。"],c:"#5ee08f",g:"#2f8f55"},
  {e:"🦌",s:"新手可以嗎",q:"適合完全新手嗎？",a:["適合。課程從 2D 入門開始，完全沒有基礎也能跟上。"],c:"#e0a46a",g:"#4f8a3a"},
@@ -1150,7 +1181,7 @@ function openSpot(i){
       '<div class="ibtns"><button class="btn btn-gold" type="button" data-jump="referral">🐱 看推薦好友活動</button></div>';
   }else{
     body.innerHTML=head(s,i)+'<p class="bio">三份聖誕禮物，挑一份給自己。按下會直接到官網付款。</p><div class="ibtns">'+
-      '<a class="btn btn-ghost" href="'+PLANLINK[3000]+'" target="_blank" rel="noopener">🎁 3000 元 ‧ 初階 9 堂</a>'+
+      '<a class="btn btn-ghost" href="'+PLANLINK[3000]+'" target="_blank" rel="noopener">🎁 3000 元 ‧ 募集會員（目前 9 堂）</a>'+
       '<a class="btn btn-gold" href="'+PLANLINK[3800]+'" target="_blank" rel="noopener">🎄 3800 元 ‧ 初階＋進階 15 堂</a>'+
       '<a class="btn btn-red" href="'+PLANLINK[4800]+'" target="_blank" rel="noopener">🎅 4800 元 ‧ 全課程 21 堂</a>'+
       '<button class="btn btn-ghost" type="button" data-jump="plans">比較三種方案</button></div>';
