@@ -15,6 +15,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://kv1012tiger.github.io/autocad-member/og-xmas.jpg">
 <meta name="theme-color" content="#0a1230">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E🎄%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -26,11 +29,11 @@
   --r:20px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:clip}
 main{overflow-x:clip}
 body{margin:0;color:var(--text);background:var(--sky1);
   font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
-  line-height:1.7;-webkit-text-size-adjust:100%;overflow-x:hidden}
+  line-height:1.7;-webkit-text-size-adjust:100%;overflow-x:clip}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 img{max-width:100%;display:block}
@@ -55,6 +58,8 @@ img{max-width:100%;display:block}
 /* ===== 飄來飄去的聖誕角色 ===== */
 .floaters{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .floaters span{position:absolute;left:0;top:0;line-height:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+.floaters>span:not(.go){animation:none!important;visibility:hidden}
+.floaters>span.go{animation-iteration-count:1!important;animation-delay:0s!important}
 .f-sleigh{font-size:34px;white-space:nowrap;animation:sleigh 30s linear infinite}
 .f-sleigh i{display:inline-block;font-style:normal;animation:hop .8s ease-in-out infinite}
 .f-sleigh i:nth-child(2){animation-delay:.2s}
@@ -461,6 +466,20 @@ body.promo-on .promo-off{display:none}
   .pm-btns{margin-top:10px}.pm-btns .btn{padding:11px 10px;font-size:15px}
 }
 
+/* ===== 雙11優惠按鈕（頂部選單） ===== */
+.pm-nav{display:none;flex:none;position:relative;overflow:hidden;border:0;color:#3a1200;font-weight:900;white-space:nowrap;border-radius:999px;
+  background:linear-gradient(135deg,#ffe08a,#ffb347 45%,#ff6b78);box-shadow:0 0 14px rgba(255,180,90,.6)}
+.pm-nav:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:pmShine 2.8s ease-in-out infinite}
+@keyframes pmShine{0%,55%{left:-60%}100%{left:130%}}
+body.promo-on .nav .pm-nav{display:inline-block;font-size:16px;padding:7px 14px}
+@media (max-width:1240px){body.promo-on .nav .pm-nav{font-size:14px;padding:5px 10px}}
+@media (min-width:901px) and (max-width:1100px){body.promo-on .nav{gap:4px}body.promo-on .nav a{padding:5px 7px;font-size:13px}body.promo-on .nav .pm-nav{font-size:13px;padding:5px 8px}body.promo-on .brand{font-size:15px;padding-right:12px}body.promo-on .brand small{font-size:11px}body.promo-on .shopbtn{font-size:14px;padding:9px 12px}body.promo-on .iconbtn{width:38px;height:38px}}
+@media (max-width:900px){body.promo-on .mtabs .pm-nav{display:inline-block;font-size:14px;padding:5px 12px}}
+
+/* ===== 標題字體：粉圓體＋聖誕英文字 ===== */
+.hero h1,h2,.slogan,.poster-card h3,.plan h3,.plan .price,.ref-box b,#promo h3,.pm-big,.panel h3,.ih h3,.ph h3{font-family:"Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-weight:400}
+.hero h1 .en{font-family:"Mountains of Christmas",cursive;font-weight:700;font-size:1.22em;letter-spacing:.02em;line-height:1}
+
 /* ===== 彈窗 ===== */
 .modal{position:fixed;inset:0;z-index:100;background:rgba(3,6,20,.8);display:none;align-items:center;justify-content:center;padding:16px}
 .modal.show{display:flex}
@@ -517,6 +536,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
   <div class="wrap">
     <a class="brand" href="#top" aria-label="回到頂部"><span class="brand-dot"></span><span>AutoCAD 年度學習會員<small>AutoCAD 顧問 ‧ 線上課程</small></span></a>
     <nav class="nav" aria-label="主選單">
+      <button class="pm-nav" type="button" data-open-promo>🎁 雙11優惠</button>
       <a href="#poster">課程海報</a>
       <a href="#plans">三種方案</a>
       <a href="#referral">推薦好友</a><a href="#info">購買前須知</a><a href="#teacher">講師介紹</a>
@@ -527,7 +547,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
   </div>
 </header>
 <nav class="mtabs" aria-label="段落選單">
-  <a href="#poster">課程海報</a><a href="#plans">三種方案</a><a href="#referral">推薦好友</a><a href="#info">購買前須知</a><a href="#teacher">講師介紹</a><a href="#faq">常見問題</a>
+  <button class="pm-nav" type="button" data-open-promo>🎁 雙11優惠</button><a href="#poster">課程海報</a><a href="#plans">三種方案</a><a href="#referral">推薦好友</a><a href="#info">購買前須知</a><a href="#teacher">講師介紹</a><a href="#faq">常見問題</a>
 </nav>
 
 <main>
@@ -535,8 +555,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:22px 16px 40p
   <div class="wrap hero-grid">
     <div>
       <div class="chips"><span class="chip recruit"><i></i>🎅 募集中 ‧ AutoCAD 年度學習會員</span><span class="chip" id="xmasChip">🎄 聖誕快樂</span></div>
-      <h1>今年聖誕，<br>送自己<span class="hl">一整年的 AutoCAD</span></h1>
-      <p class="slogan">募集好友一起解鎖全課程，<br>從零基礎學到高階與 AI</p>
+      <h1>今年聖誕<br>送自己<span class="hl">一整年的</span><br><span class="hl en">AutoCAD</span></h1>
+      <p class="slogan">募集好友一起解鎖全課程<br>從零基礎學到高階與 AI</p>
       <p class="desc">21 堂線上課，從 2D 入門、圖層圖塊出圖，一路學到 AI 程式。<br>不用一堂一堂買，一次付費，一年都能看。</p>
       <div class="unlock" aria-label="募集解鎖進度">
         <i class="bulb" style="left:16.6%;background:#5ee08f;box-shadow:0 0 12px #5ee08f"></i><i class="bulb" style="left:50%;background:#ffcf5a;box-shadow:0 0 12px #ffcf5a;animation-delay:.4s"></i><i class="bulb" style="left:83.3%;background:#ff8a95;box-shadow:0 0 12px #ff8a95;animation-delay:.8s"></i>
@@ -937,14 +957,14 @@ setMuteIcon();
   var cv=$("sky"),ctx=cv.getContext("2d"),W,H,dpr=Math.min(window.devicePixelRatio||1,2),stars=[],fl=[],run=true,t0=0;
   function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
   size();addEventListener("resize",size);
-  var mob=W<700,NS=mob?70:140,NF=reduce?0:(mob?18:35);
+  var mob=W<700,NS=mob?70:140,NF=reduce?0:(mob?30:60);
   for(var i=0;i<NS;i++)stars.push({x:Math.random(),y:Math.random()*.75,r:Math.random()*1.3+.3,p:Math.random()*Math.PI*2,s:.6+Math.random()*1.6});
-  for(i=0;i<NF;i++)fl.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.6,v:Math.random()*.28+.12,d:Math.random()*6});
+  for(i=0;i<NF;i++)fl.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.2+.8,v:Math.random()*.3+.15,d:Math.random()*6});
   function frame(t){
     if(!run)return;var tt=t/1000;ctx.clearRect(0,0,W,H);
     for(var i=0;i<stars.length;i++){var s=stars[i],a=reduce?.7:.35+.65*Math.abs(Math.sin(tt*s.s+s.p));
       ctx.fillStyle="rgba(255,250,230,"+a.toFixed(2)+")";ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);ctx.fill()}
-    ctx.fillStyle="rgba(255,255,255,.55)";ctx.beginPath();
+    ctx.fillStyle="rgba(255,255,255,.8)";ctx.beginPath();
     for(i=0;i<fl.length;i++){var p=fl[i];p.y+=p.v;p.d+=.006;p.x+=Math.sin(p.d)*.25;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}
       ctx.moveTo(p.x,p.y);ctx.arc(p.x,p.y,p.r,0,Math.PI*2)}
     ctx.fill();if(!reduce)requestAnimationFrame(frame);
@@ -1281,6 +1301,32 @@ var mT;addEventListener("resize",function(){clearTimeout(mT);mT=setTimeout(mapLa
     if(document.querySelector(".modal.show"))return;
     sstore("xmas-promo","1");openModal($("promo"),$("pmRef"));bell(1318);bell(1760,.1);
   },900);
+})();
+
+/* ---------- 雙11優惠按鈕：重新打開提醒視窗 ---------- */
+Array.prototype.forEach.call(document.querySelectorAll("[data-open-promo]"),function(b){
+  b.addEventListener("click",function(){if(PROMO){openModal($("promo"),$("pmRef"));bell(1318);bell(1760,.1)}});
+});
+
+/* ---------- 飄來飄去的角色：輪流出場，同時最多電腦 2 個、手機 1 個 ---------- */
+(function(){
+  if(reduce)return;
+  var F=[].slice.call(document.querySelectorAll(".floaters>span"));
+  var DUR={"f-sleigh":18,"f-santa":24,"f-snowman":22,"f-penguin":20,"f-deer":22,"f-gift":18,"f-bell":20,"f-flake":24};
+  var queue=[],active=0;
+  function next(){
+    if(!queue.length){queue=F.slice();for(var i=queue.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=queue[i];queue[i]=queue[j];queue[j]=t}}
+    return queue.shift();
+  }
+  function launch(){
+    if(document.hidden)return;
+    var max=innerWidth<700?1:2;if(active>=max)return;
+    var el=next();if(el.classList.contains("go"))return;
+    el.style.animationDuration=(DUR[el.className.split(" ")[0]]||20)+"s";
+    el.classList.add("go");active++;
+  }
+  F.forEach(function(el){el.addEventListener("animationend",function(e){if(e.target!==el)return;el.classList.remove("go");active=Math.max(0,active-1)})});
+  setTimeout(launch,1200);setInterval(launch,7000);
 })();
 var rT;addEventListener("resize",function(){clearTimeout(rT);rT=setTimeout(layoutStage,120)});
 layoutStage();
