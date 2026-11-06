@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#0a1230">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Huninn&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Huninn&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E🎄%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -60,22 +60,22 @@ img{max-width:100%;display:block}
 .floaters span{position:absolute;left:0;top:0;line-height:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
 .floaters>span:not(.go){animation:none!important;visibility:hidden}
 .floaters>span.go{animation-iteration-count:1!important;animation-delay:0s!important}
-.f-sleigh{font-size:34px;white-space:nowrap;animation:sleigh 30s linear infinite}
+.f-sleigh{font-size:28px;white-space:nowrap;animation:sleigh 30s linear infinite}
 .f-sleigh i{display:inline-block;font-style:normal;animation:hop .8s ease-in-out infinite}
 .f-sleigh i:nth-child(2){animation-delay:.2s}
 .f-sleigh i:nth-child(3){animation-delay:.4s}
 @keyframes sleigh{0%{transform:translate(110vw,16vh) rotate(-6deg)}50%{transform:translate(40vw,7vh) rotate(4deg)}100%{transform:translate(-40vw,18vh) rotate(-6deg)}}
 @keyframes hop{50%{transform:translateY(-6px)}}
-.f-santa{font-size:52px;opacity:.85;animation:santaFloat 44s ease-in-out infinite}
+.f-santa{font-size:44px;opacity:.6;animation:santaFloat 44s ease-in-out infinite}
 @keyframes santaFloat{0%{transform:translate(-12vw,52vh) rotate(-8deg)}25%{transform:translate(22vw,40vh) rotate(8deg)}50%{transform:translate(55vw,58vh) rotate(-6deg)}75%{transform:translate(80vw,44vh) rotate(6deg)}100%{transform:translate(112vw,54vh) rotate(-8deg)}}
-.f-snowman{font-size:46px;animation:snowman 38s ease-in-out infinite;animation-delay:-14s}
+.f-snowman{font-size:44px;opacity:.6;animation:snowman 38s ease-in-out infinite;animation-delay:-14s}
 @keyframes snowman{0%{transform:translate(105vw,74vh)}50%{transform:translate(48vw,66vh) rotate(10deg)}100%{transform:translate(-12vw,76vh)}}
-.f-penguin{font-size:38px;animation:penguin 34s linear infinite;animation-delay:-6s}
+.f-penguin{font-size:28px;animation:penguin 34s linear infinite;animation-delay:-6s}
 @keyframes penguin{0%{transform:translate(-10vw,86vh) rotate(-10deg)}10%{transform:translate(0vw,85vh) rotate(10deg)}20%{transform:translate(10vw,86vh) rotate(-10deg)}30%{transform:translate(20vw,85vh) rotate(10deg)}40%{transform:translate(30vw,86vh) rotate(-10deg)}50%{transform:translate(40vw,85vh) rotate(10deg)}60%{transform:translate(50vw,86vh) rotate(-10deg)}70%{transform:translate(60vw,85vh) rotate(10deg)}80%{transform:translate(70vw,86vh) rotate(-10deg)}90%{transform:translate(85vw,85vh) rotate(10deg)}100%{transform:translate(110vw,86vh) rotate(-10deg)}}
-.f-gift{font-size:30px;animation:drift 26s ease-in-out infinite}
-.f-bell{font-size:28px;animation:drift 32s ease-in-out infinite;animation-delay:-12s}
-.f-deer{font-size:36px;animation:deer 40s ease-in-out infinite;animation-delay:-22s}
-.f-flake{font-size:24px;opacity:.6;animation:flake 40s linear infinite}
+.f-gift{font-size:24px;animation:drift 26s ease-in-out infinite}
+.f-bell{font-size:22px;animation:drift 32s ease-in-out infinite;animation-delay:-12s}
+.f-deer{font-size:28px;animation:deer 40s ease-in-out infinite;animation-delay:-22s}
+.f-flake{font-size:20px;opacity:.6;animation:flake 40s linear infinite}
 .f-flake.b{animation-duration:30s;animation-delay:-9s;font-size:20px}
 @keyframes drift{0%{transform:translate(8vw,110vh) rotate(-15deg)}50%{transform:translate(18vw,40vh) rotate(15deg)}100%{transform:translate(4vw,-15vh) rotate(-10deg)}}
 @keyframes deer{0%{transform:translate(110vw,30vh)}30%{transform:translate(70vw,24vh) translateY(-20px)}60%{transform:translate(30vw,34vh)}100%{transform:translate(-15vw,26vh)}}
@@ -83,12 +83,12 @@ img{max-width:100%;display:block}
 .f-bell{left:auto}
 .f-bell{animation-name:drift2}
 @keyframes drift2{0%{transform:translate(88vw,110vh) rotate(15deg)}50%{transform:translate(76vw,45vh) rotate(-20deg)}100%{transform:translate(92vw,-15vh) rotate(10deg)}}
-@media (max-width:700px){.f-santa{font-size:38px}.f-snowman{font-size:34px}.f-sleigh{font-size:26px}.moon{width:140px;height:140px;right:-50px;top:60px}.moon:before{left:30px;top:44px;width:30px;height:30px}.moon:after{left:70px;top:84px;width:18px;height:18px}}
+@media (max-width:700px){.f-santa,.f-snowman{font-size:32px}.f-sleigh,.f-penguin,.f-deer{font-size:22px}.f-gift{font-size:18px}.f-bell{font-size:17px}.f-flake{font-size:16px}.moon{width:140px;height:140px;right:-50px;top:60px}.moon:before{left:30px;top:44px;width:30px;height:30px}.moon:after{left:70px;top:84px;width:18px;height:18px}}
 
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
 
 /* ===== 頂部（照萬聖節版：膠囊品牌＋外框圓角選單） ===== */
-.top{position:sticky;top:0;z-index:40;background:rgba(7,13,38,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:40;transition:transform .25s ease;background:rgba(7,13,38,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:12px;height:76px;max-width:1240px}
 .brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;font-weight:900;font-size:21px;line-height:1.25;letter-spacing:.02em;padding:6px 18px 6px 7px;border-radius:999px;background:rgba(20,30,80,.9);border:1.5px solid rgba(226,58,72,.75);white-space:nowrap;transition:transform .2s,background .2s,box-shadow .2s}
 .brand:hover{transform:translateY(-1px);background:rgba(226,58,72,.16);box-shadow:0 6px 18px rgba(226,58,72,.3)}
@@ -114,10 +114,11 @@ img{max-width:100%;display:block}
   .brand-dot{width:28px;height:28px}
   .iconbtn{width:40px;height:40px;font-size:17px}
   .shopbtn{font-size:14px;padding:9px 14px}
-  .mtabs{display:flex;position:sticky;top:64px;z-index:39;gap:8px;overflow-x:auto;padding:8px 16px;background:rgba(7,13,38,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);scrollbar-width:none}
+  .mtabs{display:flex;position:sticky;top:64px;z-index:39;transition:top .25s ease;gap:8px;overflow-x:auto;padding:8px 16px;background:rgba(7,13,38,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);scrollbar-width:none}
   .mtabs::-webkit-scrollbar{display:none}
   .mtabs a{flex:none;text-decoration:none;font-size:14px;font-weight:700;padding:5px 12px;border-radius:999px;background:rgba(20,30,80,.9);border:1.5px solid rgba(226,58,72,.6);color:#fff}
 }
+@media (max-width:900px){body.hdr-hide .top{transform:translateY(-100%)}body.hdr-hide .mtabs{top:0}body.hdr-hide section{scroll-margin-top:56px}}
 @media (max-width:440px){.brand{font-size:14px;padding:4px 10px 4px 4px;gap:6px}.brand small{font-size:10.5px;letter-spacing:.02em}.brand-dot{width:24px;height:24px}.shopbtn{font-size:13px;padding:8px 11px}.iconbtn{width:36px;height:36px;font-size:16px}}
 @media (max-width:340px){.brand small{display:none}}
 
@@ -478,7 +479,7 @@ body.promo-on .nav .pm-nav{display:inline-block;font-size:16px;padding:7px 14px}
 
 /* ===== 標題字體：粉圓體＋聖誕英文字 ===== */
 .hero h1,h2,.slogan,.poster-card h3,.plan h3,.plan .price,.ref-box b,#promo h3,.pm-big,.panel h3,.ih h3,.ph h3{font-family:"Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-weight:400}
-.hero h1 .en{font-family:"Mountains of Christmas",cursive;font-weight:700;font-size:1.22em;letter-spacing:.02em;line-height:1}
+.hero h1 .en{font-family:"Fredoka","Huninn",sans-serif;font-weight:700;font-size:1.08em;letter-spacing:.01em;line-height:1.05}
 
 /* ===== 彈窗 ===== */
 .modal{position:fixed;inset:0;z-index:100;background:rgba(3,6,20,.8);display:none;align-items:center;justify-content:center;padding:16px}
@@ -935,6 +936,18 @@ setMuteIcon();
   addEventListener("scroll",upd,{passive:true});upd();
 })();
 
+
+/* ---------- 手機：往下滑藏品牌列、往上滑就出現（選單一直留著） ---------- */
+(function(){
+  var lastY=scrollY;
+  addEventListener("scroll",function(){
+    var y=scrollY,b=document.body;
+    if(innerWidth>900||y<90){b.classList.remove("hdr-hide");lastY=y;return}
+    if(y>lastY+6){b.classList.add("hdr-hide");lastY=y}
+    else if(y<lastY-6){b.classList.remove("hdr-hide");lastY=y}
+  },{passive:true});
+})();
+
 /* ---------- 平安夜倒數 ---------- */
 (function(){
   var now=new Date(),y=now.getFullYear(),chip=$("xmasChip");
@@ -1323,6 +1336,7 @@ Array.prototype.forEach.call(document.querySelectorAll("[data-open-promo]"),func
     var max=innerWidth<700?1:2;if(active>=max)return;
     var el=next();if(el.classList.contains("go"))return;
     el.style.animationDuration=(DUR[el.className.split(" ")[0]]||20)+"s";
+    el.style.scale=(0.7+Math.random()*0.5).toFixed(2);
     el.classList.add("go");active++;
   }
   F.forEach(function(el){el.addEventListener("animationend",function(e){if(e.target!==el)return;el.classList.remove("go");active=Math.max(0,active-1)})});
